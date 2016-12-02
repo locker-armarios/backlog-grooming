@@ -8,11 +8,18 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+	<style media="print">
+		.btn-floating{display:none;}
+	</style>
   </head>
   <body ng-app="sprintApp", ng-controller="reviewController">
     <section class="page-header">
       <h1 class="project-name">Backlog Grooming</h1>
     </section>
+	
+	<div class="box"> 
+		<a id="floatdiv" class="btn-floating" href="javascript:self.print()">Imprimir</a>
+	</div>
 
     <section class="main-content">
       <h3>Histórias em Top Deliveries</h3>
@@ -36,5 +43,13 @@
 
   <script src="js/angular.min.js"></script>
   <script src="js/backlog-grooming.js"></script>
+  <script src="js/floating.js"></script>
+  <script type="text/javascript">  
+    floatingMenu.add('floatdiv',{   
+		targetTop: 20,  
+		prohibitXMovement: true,  
+		snap: true  
+	});  
+  </script>
   </body>
 </html>

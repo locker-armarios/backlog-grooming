@@ -26,7 +26,7 @@ sprintApp.controller("reviewController", ["$scope", "$http", function($scope, $h
 			//Se estiver na coluna Top Deliveries
 			if (card.idList == "576ae75d73eebc09e3446f07")
 			{
-				if (isEpic(card.name)) {
+				if (isEpic(card.name) || isTheme(card.name)) {
 					quadro.checklists.forEach(function(checklist){
 						if (card.idChecklists == checklist.id){
 							//pushar os checkitens
@@ -64,6 +64,12 @@ function sumPoints(cardname) {
 function isEpic(cardname) {
 	var cutCardName = (cardname).substring((cardname).indexOf("(")+1,(cardname).indexOf(")"));
 	if (cutCardName == "Epic") {
+		return true;
+	}
+}
+function isTheme(cardname) {
+	var cutCardName = (cardname).substring((cardname).indexOf("(")+1,(cardname).indexOf(")"));
+	if (cutCardName == "Theme") {
 		return true;
 	}
 }

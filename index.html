@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
 	<style media="print">
@@ -23,8 +24,8 @@
 
     <section class="main-content">
     <div class="row">
-      <div class="block">
-        <h3>Histórias em Escola</h3>
+      <div class="block col-md-4 panel panel-primary">
+        <h3 class="panel-heading">Histórias em Escola</h3>
             <ul>
               <li ng-repeat="story in schoolStories">
                 {{story.title}}
@@ -36,8 +37,8 @@
               </li>
             </ul>
       </div>
-      <div class="block">
-        <h3>Histórias em Empresa</h3>
+      <div class="block col-md-4 panel panel-primary">
+        <h3 class="panel-heading">Histórias em Empresa</h3>
             <ul>
               <li ng-repeat="story in companyStories">
                 {{story.title}}
@@ -49,10 +50,9 @@
               </li>
             </ul>
       </div>
-    </div>
-    <div class="dropdown row">
-      <h3  onclick="openStories();" class="dropbtn">Histórias em Top Deliveries</h3>
-        <ul class="dropdown-content" id="myDropdown" >
+    <div class="block col-md-4 panel panel-primary">
+      <h3 class="panel-heading">Histórias em Top Deliveries</h3>
+        <ul>
           <li ng-repeat="story in topDeliveries">
             {{story.title}}
             <ul ng-if="story.items">
@@ -63,17 +63,13 @@
           </li>
         </ul>
     </div>
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/locker-armarios/backlog-grooming">Backlog-grooming</a> is maintained by <a href="https://github.com/locker-armarios">locker-armarios</a>.</span>
-        <a href="http://www.web2pdfconvert.com/convert">Save to PDF</a>
-
-        <span class="site-footer-credits">This page was generated using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
+  </div>
+      
     </section>
 
   <script src="js/angular.min.js"></script>
   <script src="js/backlog-grooming.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/floating.js"></script>
   <script type="text/javascript">  
     floatingMenu.add('floatdiv',{   

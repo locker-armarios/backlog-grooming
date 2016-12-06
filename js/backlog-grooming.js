@@ -31,34 +31,20 @@ sprintApp.controller("reviewController", ["$scope", "$http", function($scope, $h
 			{
 				var storyType = findingProject(card.name);
 				if (storyType != 0) {
-				console.log(storyType)
-				if (storyType == 1) {
-					$scope.schoolStories.push({title: card.name}); //tipo escola
-					console.log("sou escola");
-				}
-				else if (storyType == 2) {
-					$scope.companyStories.push({title: card.name}); //tipo empresa
-				}
-				else if (storyType == 3){
-					$scope.schoolStories.push({title: card.name}); //tipo escola E empresa
-					$scope.companyStories.push({title: card.name});
-					console.log("somos amboss");
-				}
-				
-				if (isEpic(card.name) || isTheme(card.name)) {
-					quadro.checklists.forEach(function(checklist){
-						if (card.idChecklists == checklist.id){
-							//pushar os checkitens
-							storiesNestedNames = getStoriesNames(checklist.checkItems);
-							$scope.topDeliveries.push({title: card.name, items: storiesNestedNames});
-						}
-					}); 
+					if (storyType == 1) { //tipo escola
+						hasNestedStories(card, $scope.schoolStories, quadro);
+					}
+					else if (storyType == 2) {//tipo empresa
+						hasNestedStories(card, $scope.companyStories, quadro);
+					}
+					else if (storyType == 3){//tipo escola E empresa
+						hasNestedStories(card, $scope.schoolStories, quadro);
+						hasNestedStories(card, $scope.companyStories, quadro);
+					}				
 				}
 				else {
-					$scope.topDeliveries.push({title: card.name});
-				}
-			}
-				
+					hasNestedStories(card, $scope.topDeliveries, quadro);
+				}				
 			}
 			
 		});
@@ -116,21 +102,18 @@ function findingProject(cardname) {
 	return points;
 }
 
-function openStories() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function hasNestedStories(card, pushPlace, quadro){
+	if (isEpic(card.name) || isTheme(card.name)) {
+		quadro.checklists.forEach(function(checklist){
+			if (card.idChecklists == checklist.id){
+				//pushar os checkitens
+				storiesNestedNames = getStoriesNames(checklist.checkItems);
+				pushPlace.push({title: card.name, items: storiesNestedNames});
+			}
+		}); 
+	}
+	else {
+		pushPlace.push({title: card.name});
+	}
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}

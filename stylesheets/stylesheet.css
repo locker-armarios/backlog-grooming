@@ -264,3 +264,23 @@ a.btn-floating {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.row {
+  width: 80%;
+}
+.block {
+  float: left;
+  width: 50%;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;    
+}
+/*.dropdown:active .dropdown-content {
+    display: block;
+}*/
+.show {display:block;}

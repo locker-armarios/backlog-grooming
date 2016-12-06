@@ -22,8 +22,37 @@
 	</div>
 
     <section class="main-content">
-      <h3>Histórias em Top Deliveries</h3>
-        <ul>
+    <div class="row">
+      <div class="block">
+        <h3>Histórias em Escola</h3>
+            <ul>
+              <li ng-repeat="story in schoolStories">
+                {{story.title}}
+                <ul ng-if="story.items">
+                  <li ng-repeat="item in story.items"> 
+                    {{item.name}}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="block">
+        <h3>Histórias em Empresa</h3>
+            <ul>
+              <li ng-repeat="story in companyStories">
+                {{story.title}}
+                <ul ng-if="story.items">
+                  <li ng-repeat="item in story.items"> 
+                    {{item.name}}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+    </div>
+    <div class="dropdown row">
+      <h3  onclick="openStories();" class="dropbtn">Histórias em Top Deliveries</h3>
+        <ul class="dropdown-content" id="myDropdown" >
           <li ng-repeat="story in topDeliveries">
             {{story.title}}
             <ul ng-if="story.items">
@@ -33,6 +62,7 @@
             </ul>
           </li>
         </ul>
+    </div>
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/locker-armarios/backlog-grooming">Backlog-grooming</a> is maintained by <a href="https://github.com/locker-armarios">locker-armarios</a>.</span>
         <a href="http://www.web2pdfconvert.com/convert">Save to PDF</a>

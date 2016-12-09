@@ -1,82 +1,105 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
     <title>Backlog Grooming</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/cards.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-	<style media="print">
-		.btn-floating{display:none;}
-	</style>
-  </head>
-  <body ng-app="sprintApp", ng-controller="reviewController">
-    <section class="page-header">
-      <h1 class="project-name">Backlog Grooming</h1>
+	<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans:300,400,600,600i,700" rel="stylesheet">
+    <style media="print">
+        .btn-floating,
+		.panel-heading,
+		.number {
+            display: none;
+        }
+    </style>
+</head>
+<body ng-app="sprintApp", ng-controller="reviewController">
+    <section class="header">
+        <h1 class="project-name">Backlog Grooming</h1>
     </section>
-	
-	<div class="box"> 
-		<a id="floatdiv" class="btn-floating" href="javascript:self.print()">Imprimir</a>
-	</div>
 
-    <section class="main-content">
-    <div class="row">
-      <div class="block col-md-4 panel panel-primary">
-        <h3 class="panel-heading">Histórias em Escola</h3>
-            <ul>
-              <li ng-repeat="story in schoolStories">
-                {{story.title}}
-                <ul ng-if="story.items">
-                  <li ng-repeat="item in story.items"> 
-                    {{item.name}}
-                  </li>
-                </ul>
-              </li>
-            </ul>
-      </div>
-      <div class="block col-md-4 panel panel-primary">
-        <h3 class="panel-heading">Histórias em Empresa</h3>
-            <ul>
-              <li ng-repeat="story in companyStories">
-                {{story.title}}
-                <ul ng-if="story.items">
-                  <li ng-repeat="item in story.items"> 
-                    {{item.name}}
-                  </li>
-                </ul>
-              </li>
-            </ul>
-      </div>
-    <div class="block col-md-4 panel panel-primary">
-      <h3 class="panel-heading">Histórias em Top Deliveries</h3>
-        <ul>
-          <li ng-repeat="story in topDeliveries">
-            {{story.title}}
-            <ul ng-if="story.items">
-              <li ng-repeat="item in story.items"> 
-                {{item.name}}
-              </li>
-            </ul>
-          </li>
-        </ul>
+    <div class="box">
+        <a id="floatdiv" class="btn-floating" href="javascript:self.print()">Imprimir</a>
     </div>
-  </div>
-      
-    </section>
 
-  <script src="js/angular.min.js"></script>
-  <script src="js/backlog-grooming.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/floating.js"></script>
-  <script type="text/javascript">  
-    floatingMenu.add('floatdiv',{   
-		targetTop: 20,  
-		prohibitXMovement: true,  
-		snap: true  
-	});  
-  </script>
-  </body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel with-nav-tabs panel-default">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1default" data-toggle="tab">Histórias em Escola</a></li>
+                            <li><a href="#tab2default" data-toggle="tab">Histórias em Empresa</a></li>
+                            <li><a href="#tab3default" data-toggle="tab">Histórias em Top Deliveries</a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="tab1default">
+                                <div class="boxer" ng-repeat="story in schoolStories">
+									<div class="number">1</div>
+                                    <div class="info">
+                                        <h4 class="text-info">{{story.title}}</h4>
+                                        <ul ng-if="story.items">
+                                            <li ng-repeat="item in story.items">
+                                                {{item.name}}
+                                            </li>
+                                        </ul>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab2default">
+								<div class="boxer" ng-repeat="story in companyStories">
+                                    <div class="info">
+                                        <h4 class="text-info">{{story.title}}</h4>
+                                        <ul ng-if="story.items">
+                                            <li ng-repeat="item in story.items">
+                                                {{item.name}}
+                                            </li>
+                                        </ul>
+                                        <p></p>
+                                    </div>
+                                </div>
+							</div>
+                            <div class="tab-pane fade" id="tab3default">
+								<div class="boxer" ng-repeat="story in topDeliveries">
+                                    <div class="info">
+                                        <h4 class="text-info">{{story.title}}</h4>
+                                        <ul ng-if="story.items">
+                                            <li ng-repeat="item in story.items">
+                                                {{item.name}}
+                                            </li>
+                                        </ul>
+                                        <p></p>
+                                    </div>
+                                </div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/backlog-grooming.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/floating.js"></script>
+    <script type="text/javascript">
+        floatingMenu.add('floatdiv', {
+            targetTop: 20,
+            prohibitXMovement: true,
+            snap: true
+        });
+    </script>
+</body>
 </html>

@@ -1,0 +1,89 @@
+* {box-sizing: border-box; padding: 0; margin: 0;}
+
+body {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 60px;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	color: #606c71;
+	line-height: 1.5;
+}
+
+a {
+	color: #1e6bb8;
+	text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+	list-style-position: inside;
+	margin-left: 15px;
+}
+
+.header {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 40px;
+	background-color: #159957;
+	background-image: linear-gradient(120deg, #155799, #159957);
+	font-family: 'Alfa Slab One', cursive;
+}
+	
+.box {
+	position: relative;
+	float: right;
+	min-width: 100px;
+	right: 20px;
+	z-index: 9;
+}
+
+a.btn-floating {
+	position: absolute;
+	height: auto;
+	text-decoration: none;
+	padding: 15px 20px;
+	color: #fff;
+	background: #1e6bb8;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.3rem;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (min-width: 64em) {
+  .header {
+    padding: 5rem 6rem; }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .header {
+    padding: 3rem 4rem; }
+}
+
+@media screen and (max-width: 42em) {
+  .header {
+    padding: 2rem 1rem; }
+}
